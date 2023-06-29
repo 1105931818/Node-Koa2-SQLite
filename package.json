@@ -1,0 +1,23 @@
+{
+  "name": "api_bookstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^12.0.0",
+    "dotenv": "^16.3.1",
+    "koa": "^2.14.2",
+    "koa-body": "^6.0.1",
+    "node-gyp": "^9.1.0",
+    "node-pre-gyp": "0.12.0",
+    "sequelize": "^6.32.1",
+    "sqlite3": "^5.1.6"
+  }
+}
