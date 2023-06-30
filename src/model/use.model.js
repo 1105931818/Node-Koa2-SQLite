@@ -7,7 +7,6 @@ const User = sequelize.define('user', {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         comment: '用户名'
     },
     password: {
@@ -32,6 +31,6 @@ const User = sequelize.define('user', {
 })
 
 //强制同步数据库（创建数据表）
-User.sync({ force: true })
+User.sync()
 
 module.exports = User

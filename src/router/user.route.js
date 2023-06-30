@@ -1,16 +1,26 @@
 const Router = require('@koa/router')
 
-const { register, login } = require('../controller/user.controller')
+const { 
+    userValidator, 
+    verifyUser, 
+    crpytPassword, 
+    loginValidator,
+    verifyLogin,
+    pwdValidator
+} = require('../middleware/user.middleware')
+const {
+    auth
+} = require('../middleware/auth.middleware')
+const { register, login, revise } = require('../controller/user.controller')
 const router = new Router({ prefix: '/user' })
 
-router.get('/', (ctx, next) => {
-    ctx.body = 'hello user'
-})
-
 //用户注册
-router.post('/register', register)
+router.post('/register', userValidator, verifyUser, crpytPassword, register)
 
 //用户登录
-router.post('/login', login)
+router.post('/login', loginValidator, verifyLogin, login)
+
+//修改密码
+router.patch('/revise', auth, pwdValidator, crpytPassword, revise)
 
 module.exports = router
